@@ -1,0 +1,13 @@
+FROM centos:centos7
+
+#install ressources
+RUN yum -y install nano wget java sudo java tar
+
+#dl & install tomcat
+RUN mkdir /usr/local/tomcat
+RUN wget http://mirrors.ircam.fr/pub/apache/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz /tmp/tomcat.tar.gz
+RUN cd /tmp && tar xvfz tomcat.tar.gz
+RUN cp -Rv /tmp/apache-tomcat-8.5.40/* /usr/local/tomcat/
+EXPOSE 8080
+CMD /usr/local/tomcat/bin/catalina.sh run
+ENTRYPOINT ["tail", "-f", "/dev/null"]

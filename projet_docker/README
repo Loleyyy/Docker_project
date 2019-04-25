@@ -1,0 +1,6 @@
+Mini projet docker :
+
+1 container : Debian + tomcat
+1 container : bdd = postgresql
+
+

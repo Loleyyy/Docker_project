@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app-linux:  
+     build: ./linux
+     container_name: linux_ksl
+     image: projetdocker_app-linux:latest 
+     ports:
+     - '80:8080' 
+
+  db-web:
+     build: ./db
+     container_name : db_ksl
+     image: projetdocker_db-web:latest
